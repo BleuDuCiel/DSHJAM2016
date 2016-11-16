@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d7d6ae279b6304d419188fd72b381663
-timeCreated: 1479324364
+guid: f2c4be9d95e83a5428ec3050b58696aa
+timeCreated: 1479329799
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -38,7 +38,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -66,8 +66,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 811
-        width: 240
+        y: 0
+        width: 168.66667
         height: 101
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -78,12 +78,12 @@ TextureImporter:
       name: 001_fliptable_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 710
-        width: 308
+        x: 184
+        y: 0
+        width: 187
         height: 101
       alignment: 9
-      pivot: {x: 0.40473807, y: 0}
+      pivot: {x: 0.39207304, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -91,10 +91,10 @@ TextureImporter:
       name: 001_fliptable_2
       rect:
         serializedVersion: 2
-        x: 57
-        y: 634
-        width: 143
-        height: 44
+        x: 390
+        y: 46
+        width: 97
+        height: 29
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,9 +104,9 @@ TextureImporter:
       name: 001_fliptable_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 508
-        width: 240
+        x: 519
+        y: 0
+        width: 76
         height: 101
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -117,9 +117,9 @@ TextureImporter:
       name: 001_fliptable_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 407
-        width: 254
+        x: 608
+        y: 0
+        width: 169
         height: 101
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -130,9 +130,9 @@ TextureImporter:
       name: 001_fliptable_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 306
-        width: 254
+        x: 783
+        y: 0
+        width: 169
         height: 101
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -143,9 +143,9 @@ TextureImporter:
       name: 001_fliptable_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 205
-        width: 240
+        x: 967
+        y: 0
+        width: 155
         height: 101
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -156,12 +156,12 @@ TextureImporter:
       name: 001_fliptable_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 104
-        width: 374
+        x: 1123
+        y: 0
+        width: 242
         height: 101
       alignment: 9
-      pivot: {x: 0.3204901, y: 0}
+      pivot: {x: 0.29977745, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -169,9 +169,9 @@ TextureImporter:
       name: 001_fliptable_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3
-        width: 240
+        x: 1363
+        y: 0
+        width: 155
         height: 101
       alignment: 7
       pivot: {x: 0.5, y: 0}
