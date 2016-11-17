@@ -25,12 +25,13 @@ public class CharacterSelect : MonoBehaviour
 
     private Stack players;
     private pair[] input;
-     
+
+    private int cpt = 0;
     // Use this for initialization
     void Start()
     {
         players = new Stack();
-        players.Push(new Player(0,generateInputs()));
+        players.Push(new Player(0, generateInputs()));
     }
 
     // Update is called once per frame
@@ -46,9 +47,9 @@ public class CharacterSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             GameObject.FindGameObjectWithTag("GameManager").SendMessage("characterSelect", players);
-            
+
         }
-            
+
 
 
 
@@ -61,7 +62,7 @@ public class CharacterSelect : MonoBehaviour
         {
             nbPlayers++;
             GetComponent<SpriteRenderer>().sprite = numbers[nbPlayers - 1];
-            players.Push(new Player(0,generateInputs()));
+            players.Push(new Player(0, generateInputs()));
         }
     }
 
@@ -77,6 +78,8 @@ public class CharacterSelect : MonoBehaviour
 
     private string generateInputs()
     {
-        return "KB" + "," +((int)(Random.value * 4)).ToString();
+        if (Input.GetJoystickNames().Length > 0)
+            return "JS" + "," + ((int)(Input.GetJoystickNames().Length)).ToString();
+        return "KB" + "," + ((int)(Random.value * 2)).ToString();
     }
 }
