@@ -19,7 +19,7 @@ public class ProjControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (setup) ;
+        if (setup) 
             transform.Translate(new Vector3(dir * speed * Time.deltaTime, 0, 0));
     }
 

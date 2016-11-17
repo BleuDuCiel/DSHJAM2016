@@ -33,6 +33,8 @@ namespace characterControl
         private bool i_Attack = false;
         private bool i_Item = false;
         private float i_Move = 0.0f;
+        private string pre = "KB";
+        private string suf = "0";
 
         private void Awake()
         {
@@ -83,10 +85,19 @@ namespace characterControl
         private void SetInputs()
         {
 
-            i_Jump = Input.GetKeyDown(KeyCode.Space);
-            i_Attack = Input.GetKeyDown(KeyCode.A);
-            i_Item = Input.GetKeyDown(KeyCode.E);
-            i_Move = Input.GetAxis("Horizontal0");
+            i_Jump = Input.GetButtonDown(pre + "Jump" + suf);
+            i_Attack = Input.GetButtonDown(pre + "Attack" + suf);
+            i_Item = Input.GetButtonDown(pre + "Item" + suf);
+            i_Move = Input.GetAxis(pre + "Move" + suf);
+        }
+
+        void SetupInputs(string i)
+        {
+            string[] fix = i.Split(',');
+            pre = fix[0];
+            suf = fix[1];
+
+            Debug.Log(i);
         }
 
         private void Move(float move, bool attack, bool jump)
@@ -174,7 +185,6 @@ namespace characterControl
 
         private void Hit()
         {
-            Debug.Log("AMIHERE?");
             m_Anim.SetBool("Hit", true);
             StartCoroutine(Wait(0.2f));
 
@@ -182,7 +192,6 @@ namespace characterControl
         private IEnumerator Wait(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
-            Debug.Log("ALLLOOOOWWWWW????");
             m_Anim.SetBool("Hit", false);
         }
     }
