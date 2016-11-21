@@ -76,10 +76,11 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
+	// TODO: y u do dis?
     private string generateInputs()
     {
         if (Input.GetJoystickNames().Length > 0)
-            return "JS" + "," + ((int)(Input.GetJoystickNames().Length)).ToString();
+			return "JS" + "," + (players.ToArray().Length).ToString();
         return "KB" + "," + ((int)(Random.value * 2)).ToString();
     }
 }
