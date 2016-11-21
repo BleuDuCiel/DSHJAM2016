@@ -6,6 +6,9 @@ using System.Collections;
 public class CharacterSelect : MonoBehaviour
 {
 
+    [SerializeField]
+    private Transform[] m_Characters;
+
     struct pair
     {
         public string pre;
