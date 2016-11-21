@@ -18,15 +18,22 @@ namespace characterControl
         [SerializeField]
         private Transform m_Proj;
 
+        [SerializeField]
+        private int m_hitPoints = 1;
+
         //ground detection
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .5f; // Radius of the overlap circle to determine if grounded
         private bool m_Grounded;            // Whether or not the player is grounded.
 
+        //elements
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private Collider2D[] m_Colliders;
+        private SpriteRenderer m_spriteRenderer;
+
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+        private bool m_invincible = false;
 
         //inputs
         private bool i_Jump = false;
@@ -43,6 +50,7 @@ namespace characterControl
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_Colliders = GetComponents<Collider2D>();
+            m_spriteRenderer = transform.GetComponent<SpriteRenderer>();
 
         }
 
@@ -79,6 +87,13 @@ namespace characterControl
             SetInputs();
 
             Move(i_Move, i_Attack, i_Jump);
+            Die();
+           
+        }
+
+        void LateUpdate()
+        {
+            //UpdateCollider();
         }
 
         //inputs to set: i_Jump, i_Attack, i_Item, i_Move
@@ -130,12 +145,15 @@ namespace characterControl
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce + m_Rigidbody2D.velocity.y));
+                Debug.Log(Mathf.Abs(m_Rigidbody2D.velocity.y));
+                m_Rigidbody2D.velocity = Vector2.zero;
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
 
 
             if (attack)
             {
+                Debug.Log("how?");
                 Attack();
                 m_Anim.SetBool("Attack", true);
 
@@ -166,6 +184,7 @@ namespace characterControl
             //ignore collision between projectile and all player colliders
             foreach (Collider2D coll in m_Colliders)
             {
+                Debug.Log(coll);
                 Physics2D.IgnoreCollision(coll, c);
             }
 
@@ -183,18 +202,73 @@ namespace characterControl
 
         }
 
+        void Die()
+        {
+            if (m_hitPoints <= 0)
+            {
+                m_Anim.SetBool("Dead", true);
+                StartCoroutine(WaitAndDie());
+            }
+        }
+
         private void Hit()
         {
-            m_Anim.SetBool("Hit", true);
-            StartCoroutine(Wait(0.2f));
+            if (!m_invincible)
+            {
+                setInvincible(true);
+                StartCoroutine(WaitAndEndInvincible());
+                m_hitPoints--;
+            }
+
+
+
 
         }
-        private IEnumerator Wait(float waitTime)
+
+        private void UpdateCollider()
+        {
+            //c'est très sale
+            Destroy(transform.GetComponent<PolygonCollider2D>());
+            //très très sale
+            gameObject.AddComponent<PolygonCollider2D>();
+        }
+
+        private IEnumerator WaitAndHit(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
             m_Anim.SetBool("Hit", false);
         }
+
+        void setInvincible(bool i)
+        {
+            if (i)
+            {
+                m_spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+
+            }
+            else
+            {
+                m_spriteRenderer.color = new Color(1, 1, 1, 1);
+            }
+            m_invincible = i;
+
+        }
+
+        private IEnumerator WaitAndEndInvincible(float waitTime = 1.0f)
+        {
+            yield return new WaitForSeconds(waitTime);
+            setInvincible(false);
+        }
+
+        private IEnumerator WaitAndDie(float waitTime = 0.5f)
+        {
+            yield return new WaitForSeconds(waitTime);
+            m_Anim.SetBool("Dead", true);
+            Destroy(gameObject);
+        }
     }
+
+
 
 
 }
