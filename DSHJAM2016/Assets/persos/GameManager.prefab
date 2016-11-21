@@ -52,4 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterPerfabs:
-  - {fileID: 4000010685959282, guid: 88dd43f4d20f59943808aab1dbc3298a, type: 2}
+  - {fileID: 4000010778171166, guid: 96e06d22e6d94cd44b7d9f2f674dc26b, type: 2}
