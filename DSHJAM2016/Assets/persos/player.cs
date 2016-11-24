@@ -15,7 +15,8 @@ public class Player
 		this.right = right;
     }
 
-	// Config which hand for which button 
+	// Getters of player inputs
+	// Note: Config below which hand for which button 
 	public bool getJump() {
 		return left.getJump();
 	}
@@ -30,5 +31,19 @@ public class Player
 
 	public float getMove() {
 		return left.getMove();
+	}
+
+	// Swap the left hand between this player and other player
+	public void swapLeftHand(Player other) {
+		LeftHand tmp = this.left;
+		this.left = other.left;
+		other.left = tmp;
+	}
+
+	// Swap the right hand between this player and other player
+	public void swapRightHand(Player other) {
+		RightHand tmp = this.right;
+		this.right = other.right;
+		other.right = tmp;
 	}
 }

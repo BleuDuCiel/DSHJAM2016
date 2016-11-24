@@ -66,7 +66,7 @@ public class CharacterSelect : MonoBehaviour
         {
             nbPlayers++;
             GetComponent<SpriteRenderer>().sprite = numbers[nbPlayers - 1];
-			players.Push(new Player(0, new LeftHand(), new RightHand()));
+			players.Push(new Player(0, new LeftHand("JS","1"), new RightHand("JS","1")));
             //players.Push(new Player(0, generateInputs()));
         }
     }
@@ -84,7 +84,6 @@ public class CharacterSelect : MonoBehaviour
 	// TODO: y u do dis?
     private string generateInputs()
     {
-		RightHand a;
         if (Input.GetJoystickNames().Length > 0)
 			return "JS" + "," + (players.ToArray().Length).ToString();
         return "KB" + "," + ((int)(Random.value * 2)).ToString();
