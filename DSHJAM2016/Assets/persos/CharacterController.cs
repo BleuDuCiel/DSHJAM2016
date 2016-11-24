@@ -82,7 +82,7 @@ namespace characterControl
         void Update()
         {
             //m_Anim.SetBool("Hit", false);
-            //first thing: get all inputs
+			//first thing: get all inputs <- m8 if you get inputs, why name this "SetInputs" ? (umad?)
             SetInputs();
 
             Move(i_Move, i_Attack, i_Jump);

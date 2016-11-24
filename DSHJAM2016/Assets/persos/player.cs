@@ -4,10 +4,7 @@ using Inputs;
 
 public class Player
 {
-
-
     public int number { get; set; }
-    //public string prefixsuffix { get; set; }
 	private LeftHand left;
 	private RightHand right;
 
@@ -16,9 +13,9 @@ public class Player
         number = n;
 		this.left = left;
 		this.right = right;
-        //prefixsuffix = ps;
     }
 
+	// Config which hand for which button 
 	public bool getJump() {
 		return left.getJump();
 	}
@@ -34,12 +31,4 @@ public class Player
 	public float getMove() {
 		return left.getMove();
 	}
-	/*
-    public string getInputs()
-    {
-        return prefixsuffix;
-    }
-    */
-
-
 }
