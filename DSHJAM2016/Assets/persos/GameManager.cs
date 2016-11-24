@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
             //TODO character selection
             Transform p = Instantiate(characterPerfabs[0]);
             p.position = pos;
-            p.SendMessage("SetupInputs", pl.getInputs());
+			p.SendMessage ("SetupPlayer", pl);
             i++;
         }
 

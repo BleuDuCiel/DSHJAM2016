@@ -36,12 +36,11 @@ namespace characterControl
         private bool m_invincible = false;
 
         //inputs
+		private Player player;
         private bool i_Jump = false;
         private bool i_Attack = false;
         private bool i_Item = false;
         private float i_Move = 0.0f;
-        private string pre = "KB";
-        private string suf = "0";
 
         private void Awake()
         {
@@ -99,21 +98,15 @@ namespace characterControl
         //inputs to set: i_Jump, i_Attack, i_Item, i_Move
         private void SetInputs()
         {
-
-            i_Jump = Input.GetButtonDown(pre + "Jump" + suf);
-            i_Attack = Input.GetButtonDown(pre + "Attack" + suf);
-            i_Item = Input.GetButtonDown(pre + "Item" + suf);
-            i_Move = Input.GetAxis(pre + "Move" + suf);
+			i_Jump = player.getJump();
+			i_Attack = player.getAttack();
+			i_Item = player.getItem();
+			i_Move = player.getMove();
         }
 
-        void SetupInputs(string i)
-        {
-            string[] fix = i.Split(',');
-            pre = fix[0];
-            suf = fix[1];
-
-            Debug.Log(i);
-        }
+		void SetupPlayer(Player p) {
+			this.player = p;
+		}
 
         private void Move(float move, bool attack, bool jump)
         {

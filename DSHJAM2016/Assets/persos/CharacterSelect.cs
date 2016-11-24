@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
 using System.Collections;
+using Inputs;
+
 
 public class CharacterSelect : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class CharacterSelect : MonoBehaviour
     void Start()
     {
         players = new Stack();
-        players.Push(new Player(0, generateInputs()));
+		players.Push(new Player(0, new LeftHand(), new RightHand()));//generateInputs())); // TODO: Ceate the hands
     }
 
     // Update is called once per frame
@@ -65,7 +66,8 @@ public class CharacterSelect : MonoBehaviour
         {
             nbPlayers++;
             GetComponent<SpriteRenderer>().sprite = numbers[nbPlayers - 1];
-            players.Push(new Player(0, generateInputs()));
+			players.Push(new Player(0, new LeftHand(), new RightHand()));
+            //players.Push(new Player(0, generateInputs()));
         }
     }
 
@@ -82,6 +84,7 @@ public class CharacterSelect : MonoBehaviour
 	// TODO: y u do dis?
     private string generateInputs()
     {
+		RightHand a;
         if (Input.GetJoystickNames().Length > 0)
 			return "JS" + "," + (players.ToArray().Length).ToString();
         return "KB" + "," + ((int)(Random.value * 2)).ToString();
