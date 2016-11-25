@@ -149,6 +149,7 @@ namespace characterControl
                 Debug.Log("how?");
                 Attack();
                 m_Anim.SetBool("Attack", true);
+                m_Rigidbody2D.velocity = m_Rigidbody2D.velocity * 0.5f;
 
             }
             else

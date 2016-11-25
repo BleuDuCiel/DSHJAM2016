@@ -134,36 +134,36 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: KBAttack0
+    m_Name: KBAttackX0
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: f
-    positiveButton: 
+    negativeButton: k
+    positiveButton: m
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 1000
+    gravity: 3
     dead: 0.001
-    sensitivity: 1000
-    snap: 0
+    sensitivity: 3
+    snap: 1
     invert: 0
     type: 0
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: KBAttack1
+    m_Name: KBAttackY0
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: o
     positiveButton: l
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 1000
+    gravity: 3
     dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
+    sensitivity: 3
+    snap: 1
+    invert: 1
     type: 0
-    axis: 0
+    axis: 1
     joyNum: 1
   - serializedVersion: 3
     m_Name: KBAttack2
