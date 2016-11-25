@@ -33,6 +33,11 @@ public class Player
 		return left.getMove();
 	}
 
+	// Return the angle in rad [-π,π] of the left stick
+	public double getAngle() {
+		return left.getAngle ();
+	}
+
 	// Swap the left hand between this player and other player
 	public void swapLeftHand(Player other) {
 		LeftHand tmp = this.left;

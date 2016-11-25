@@ -33,15 +33,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameStarted && SceneManager.GetActiveScene().name == "zbra")
-        {
-            setupCharacters();
+		if (!gameStarted && SceneManager.GetActiveScene ().name == "zbra") {
+			setupCharacters ();
 			// Crappy test, can't index this $*%& untyped Stack 
-			Player p0 = (Player)players.ToArray()[0];
-			Player p1 = (Player)players.ToArray()[1];
+			Player p0 = (Player)players.ToArray () [0];
+			Player p1 = (Player)players.ToArray () [1];
 			p0.swapRightHand (p1);
+		} else {
+			// Crappy test, can't index this $*%& untyped Stack 
+			Player p0 = (Player)players.ToArray () [0];
+			Debug.Log("Axis: " + p0.getAngle ());
 		}
-
 
     }
 

@@ -29,6 +29,17 @@ namespace Inputs
 		public float getMove() {
 			return Input.GetAxis(input + "Move" + id);
 		}
+
+		// Return the angle in rad [-π,π] of the left stick
+		public double getAngle() {
+			double x = Input.GetAxis (input + "Move" + id);
+			double y = - Input.GetAxis (input + "Vertical" + id);
+
+			// default value
+			if (x == 0 && y == 0) return 0;
+			// angle value
+			return Math.Atan2 (y, x);
+		}
 	}
 
 	public class RightHand : Hand
