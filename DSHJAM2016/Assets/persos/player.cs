@@ -26,7 +26,7 @@ public class Player
 	}
 
 	public bool getAttack() {
-		return right.getItem();
+		return right.getAttack();
 	}
 
 	public float getMove() {
