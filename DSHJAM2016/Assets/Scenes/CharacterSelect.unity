@@ -354,8 +354,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Characters:
+  - {fileID: 4000010778171166, guid: 96e06d22e6d94cd44b7d9f2f674dc26b, type: 2}
   - {fileID: 4000013942003650, guid: 078f0f5fe349a514182cda4a00c1577f, type: 2}
   - {fileID: 4000010778171166, guid: 96e06d22e6d94cd44b7d9f2f674dc26b, type: 2}
+  - {fileID: 4000010778171166, guid: dff1323f68d698743bd1cc83aa0b81c0, type: 2}
+  - {fileID: 4000010778171166, guid: eab528ba54cc86545adae85779a84d54, type: 2}
+  - {fileID: 4000010778171166, guid: 033a25ea6f2f1e340869744a58b4daef, type: 2}
+  - {fileID: 4000010778171166, guid: fdef02e480aa46046924bb311ab9deaf, type: 2}
+  - {fileID: 4000010778171166, guid: 898e2bdb013284c47a4a069f0340fc4d, type: 2}
   numbers:
   - {fileID: 21300000, guid: 683a9d4b22eed2143b35973d0e9a88d8, type: 3}
   - {fileID: 21300000, guid: e42ee0aca6ff3214d9d707d9ea5bd727, type: 3}

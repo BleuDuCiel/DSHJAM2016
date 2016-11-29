@@ -24,7 +24,7 @@ GameObject:
   - 114: {fileID: 114000010460972418}
   - 95: {fileID: 95000014180262372}
   - 61: {fileID: 61000013492324306}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: 003
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011608162100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ Animator:
   m_GameObject: {fileID: 1000011337221112}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5b7994da8a666d448a5d55d22473a4d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 69827f80e9fe6d14294027dcc69b84e8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -168,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0907b15a45113754787dc390bd1919f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e5f0e718de57814185422ba7b0eeec0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
