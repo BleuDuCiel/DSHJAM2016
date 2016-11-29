@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
 			p0.swapRightHand (p1);
 		} else {
             // Crappy test, can't index this $*%& untyped Stack 
-            Debug.Log("Why are we here?");
 			//Player p0 = (Player)players.ToArray () [0];
 			//Debug.Log("Axis: " + p0.getAngle ());
 		}
