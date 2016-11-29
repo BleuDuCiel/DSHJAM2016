@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 using Inputs;
 
 
@@ -24,84 +25,65 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField]
     public Sprite[] numbers;
 
-    private int nbPlayers = 1;
-    private int nbMaxPlayers = 4;
+    private int nbPlayers = 0;
+    private static int nbMaxPlayers = 4;
+	private int[] slots;
 
-    private Stack players;
+	private List<Player> players;
     private pair[] input;
 
     private int cpt = 0;
     // Use this for initialization
     void Start()
     {
-        players = new Stack();
-        if (Input.GetJoystickNames().Length <= 0)
-        {
-            players.Push(new Player(0, new LeftHand("KB", "0"), new RightHand("KB", "0")));
-        }
-        else
-        {
-            players.Push(new Player(0, new LeftHand(), new RightHand()));//generateInputs())); // TODO: Ceate the hands
-        }
+		players = new List<Player>(nbMaxPlayers); // I hate stacks
+		slots = new int[nbMaxPlayers];
+		for ( int i = 0; i < nbMaxPlayers;i++ ) // I hate C#
+			slots[i] = -1;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+		// Listen for jumps on JS
+		for (int i = 0; i < 4; i++)
+			if (Input.GetButtonDown ("JS" + "Jump" + i))
+				addPlayerJS (i);
 
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
-            addPlayer();
-        if (Input.GetKeyDown(KeyCode.KeypadMinus))
-            delPlayer();
+		// Listen for items on JS
+		for (int i = 0; i < 4; i++)
+			if (Input.GetButtonDown ("JS" + "Item" + i))
+				delPlayerJS (i);
 
-
-        if (Input.GetKeyDown(KeyCode.W))
+	
+        if (Input.GetButtonDown("Submit"))
         {
             GameObject.FindGameObjectWithTag("GameManager").SendMessage("characterSelect", players);
 
         }
-
-
-
-
+			
     }
 
-    void addPlayer()
-    {
+	void addPlayerJS(int id=0) {
+		// First, check slot status
+		if (slots[id] != -1) return;
 
-        if (nbPlayers < nbMaxPlayers)
-        {
-            nbPlayers++;
-            GetComponent<SpriteRenderer>().sprite = numbers[nbPlayers - 1];
-            if (Input.GetJoystickNames().Length <= 0)
-            {
-                players.Push(new Player(0, new LeftHand("KB", "0"), new RightHand("KB", "0")));
-            }
-            else
-            {
-                players.Push(new Player(0, new LeftHand("JS", "1"), new RightHand("JS", "1")));
-            }
-            
-            //players.Push(new Player(0, generateInputs()));
-        }
-    }
+		// Then create a player with his own JS, shitty gameplay will come soon
+		players.Add(new Player(nbPlayers, new LeftHand("JS",id.ToString()), new RightHand("JS",id.ToString())));
+		slots [id] = nbPlayers;
+		nbPlayers++;
+		Debug.Log ("New player with " + Input.GetJoystickNames()[id] + "! Current players : " + nbPlayers);
+	}
 
-    void delPlayer()
-    {
-        if (nbPlayers > 1)
-        {
-            nbPlayers--;
-            GetComponent<SpriteRenderer>().sprite = numbers[nbPlayers - 1];
-            players.Pop();
-        }
-    }
+	void delPlayerJS(int id=0) {
+		// First, check slot status
+		if (slots[id] == -1) return;
 
-    // TODO: y u do dis?
-    private string generateInputs()
-    {
-        if (Input.GetJoystickNames().Length > 0)
-            return "JS" + "," + (players.ToArray().Length).ToString();
-        return "KB" + "," + ((int)(Random.value * 2)).ToString();
-    }
+		// Then create a player with his own JS, shitty gameplay will come soon
+		players.RemoveAt(slots[id]);
+		slots [id] = -1;
+		nbPlayers--;
+		Debug.Log ("Player abandon :( Current players : " + nbPlayers);
+	}
 }

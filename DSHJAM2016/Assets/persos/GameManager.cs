@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;
 
-    private Stack players;
+	private List<Player> players;
 
     private bool gameStarted = false;
 
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void characterSelect(Stack p)
+	void characterSelect(List<Player> p)
     {
         players = p;
 

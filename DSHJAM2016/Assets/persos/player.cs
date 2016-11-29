@@ -18,7 +18,7 @@ public class Player
 	// Getters of player inputs
 	// Note: Config below which hand for which button 
 	public bool getJump() {
-		return left.getJump();
+		return right.getJump();
 	}
 
 	public bool getItem() {
