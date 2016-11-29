@@ -36,7 +36,7 @@ namespace characterControl
         private bool m_invincible = false;
 
         //inputs
-		private Player player;
+        private Player player;
         private bool i_Jump = false;
         private bool i_Attack = false;
         private bool i_Item = false;
@@ -82,12 +82,12 @@ namespace characterControl
         void Update()
         {
             //m_Anim.SetBool("Hit", false);
-			//first thing: get all inputs <- m8 if you get inputs, why name this "SetInputs" ? (umad?)
+            //first thing: get all inputs <- m8 if you get inputs, why name this "SetInputs" ? (umad?)
             SetInputs();
 
             Move(i_Move, i_Attack, i_Jump);
             Die();
-           
+
         }
 
         void LateUpdate()
@@ -98,15 +98,17 @@ namespace characterControl
         //inputs to set: i_Jump, i_Attack, i_Item, i_Move
         private void SetInputs()
         {
-			i_Jump = player.getJump();
-			i_Attack = player.getAttack();
-			i_Item = player.getItem();
-			i_Move = player.getMove();
+            Debug.Log(player);
+            i_Jump = player.getJump();
+            i_Attack = player.getAttack();
+            i_Item = player.getItem();
+            i_Move = player.getMove();
         }
 
-		void SetupPlayer(Player p) {
-			this.player = p;
-		}
+        void SetupPlayer(Player p)
+        {
+            this.player = p;
+        }
 
         private void Move(float move, bool attack, bool jump)
         {

@@ -134,7 +134,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: KBAttackX0
+    m_Name: KBAttack0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: k
@@ -150,7 +150,7 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: KBAttackY0
+    m_Name: KBAttack0
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: o

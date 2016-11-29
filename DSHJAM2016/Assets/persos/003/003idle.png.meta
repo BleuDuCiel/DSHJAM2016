@@ -1,0 +1,395 @@
+fileFormatVersion: 2
+guid: 6e5f0e718de57814185422ba7b0eeec0
+timeCreated: 1480432969
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 003idle_0
+    21300002: 003idle_1
+    21300004: 003idle_2
+    21300006: 003idle_3
+    21300008: 003idle_4
+    21300010: 003idle_5
+    21300012: 003idle_6
+    21300014: 003idle_7
+    21300016: 003idle_8
+    21300018: 003idle_9
+    21300020: 003idle_10
+    21300022: 003idle_11
+    21300024: 003idle_12
+    21300026: 003idle_13
+    21300028: 003idle_14
+    21300030: 003idle_15
+    21300032: 003idle_16
+    21300034: 003idle_17
+    21300036: 003idle_18
+    21300038: 003idle_19
+    21300040: 003idle_20
+    21300042: 003idle_21
+    21300044: 003idle_22
+    21300046: 003idle_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 003idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1710
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_1
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1710
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_2
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1710
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_3
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 1710
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_4
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 1710
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_5
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 1710
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1140
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_7
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 1140
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_8
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1140
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_9
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 1140
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_10
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 1140
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_11
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 1140
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 570
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_13
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 570
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_14
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 570
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_15
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 570
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_16
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 570
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_17
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 570
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_19
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_20
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 0
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_21
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 0
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_22
+      rect:
+        serializedVersion: 2
+        x: 2280
+        y: 0
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 003idle_23
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 0
+        width: 570
+        height: 570
+      alignment: 9
+      pivot: {x: 0.635, y: 0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

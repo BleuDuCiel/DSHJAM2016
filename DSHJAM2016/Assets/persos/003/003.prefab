@@ -24,8 +24,8 @@ GameObject:
   - 114: {fileID: 114000010460972418}
   - 95: {fileID: 95000014180262372}
   - 61: {fileID: 61000013492324306}
-  m_Layer: 11
-  m_Name: 002
+  m_Layer: 0
+  m_Name: 003
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011608162100}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 10
-  m_JumpForce: 1100
+  m_JumpForce: 800
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256

@@ -40,9 +40,10 @@ public class GameManager : MonoBehaviour
 			Player p1 = (Player)players.ToArray () [1];
 			p0.swapRightHand (p1);
 		} else {
-			// Crappy test, can't index this $*%& untyped Stack 
-			Player p0 = (Player)players.ToArray () [0];
-			Debug.Log("Axis: " + p0.getAngle ());
+            // Crappy test, can't index this $*%& untyped Stack 
+            Debug.Log("Why are we here?");
+			//Player p0 = (Player)players.ToArray () [0];
+			//Debug.Log("Axis: " + p0.getAngle ());
 		}
 
     }
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
         {
             Vector3 pos = Vector3.left * 5 * i;
             //TODO character selection
+            Debug.Log("waddup?");
             Transform p = Instantiate(characterPerfabs[0]);
             p.position = pos;
 			p.SendMessage ("SetupPlayer", pl);

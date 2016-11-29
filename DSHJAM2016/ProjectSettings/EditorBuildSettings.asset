@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterSelect.unity
   - enabled: 1
     path: Assets/Scenes/zbra.unity
+  - enabled: 1
+    path: Assets/Scenes/level01.unity

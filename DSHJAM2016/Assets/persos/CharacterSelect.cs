@@ -25,7 +25,7 @@ public class CharacterSelect : MonoBehaviour
     public Sprite[] numbers;
 
     private int nbPlayers = 1;
-    private int nbMaxPlayers = 2;
+    private int nbMaxPlayers = 4;
 
     private Stack players;
     private pair[] input;
@@ -35,8 +35,16 @@ public class CharacterSelect : MonoBehaviour
     void Start()
     {
         players = new Stack();
-		players.Push(new Player(0, new LeftHand(), new RightHand()));//generateInputs())); // TODO: Ceate the hands
+        if (Input.GetJoystickNames().Length <= 0)
+        {
+            players.Push(new Player(0, new LeftHand("KB", "0"), new RightHand("KB", "0")));
+        }
+        else
+        {
+            players.Push(new Player(0, new LeftHand(), new RightHand()));//generateInputs())); // TODO: Ceate the hands
+        }
     }
+
 
     // Update is called once per frame
     void Update()
@@ -66,7 +74,15 @@ public class CharacterSelect : MonoBehaviour
         {
             nbPlayers++;
             GetComponent<SpriteRenderer>().sprite = numbers[nbPlayers - 1];
-			players.Push(new Player(0, new LeftHand("JS","1"), new RightHand("JS","1")));
+            if (Input.GetJoystickNames().Length <= 0)
+            {
+                players.Push(new Player(0, new LeftHand("KB", "0"), new RightHand("KB", "0")));
+            }
+            else
+            {
+                players.Push(new Player(0, new LeftHand("JS", "1"), new RightHand("JS", "1")));
+            }
+            
             //players.Push(new Player(0, generateInputs()));
         }
     }
@@ -81,11 +97,11 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
-	// TODO: y u do dis?
+    // TODO: y u do dis?
     private string generateInputs()
     {
         if (Input.GetJoystickNames().Length > 0)
-			return "JS" + "," + (players.ToArray().Length).ToString();
+            return "JS" + "," + (players.ToArray().Length).ToString();
         return "KB" + "," + ((int)(Random.value * 2)).ToString();
     }
 }
