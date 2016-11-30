@@ -23,6 +23,8 @@ GameObject:
   - 95: {fileID: 95000010485224712}
   - 60: {fileID: 60000013404873026}
   - 114: {fileID: 114000011792185054}
+  - 50: {fileID: 50000013400696752}
+  - 58: {fileID: 58000012090283748}
   m_Layer: 0
   m_Name: 002Proj
   m_TagString: Untagged
@@ -43,6 +45,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000013400696752
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013927352990}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 3
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58000012090283748
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013927352990}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.25, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!60 &60000013404873026
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -57,22 +90,14 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 0.44, y: 0.205}
-      - {x: 0.35999998, y: 0.225}
-      - {x: -0.22999999, y: 0.225}
-      - {x: -0.28, y: 0.145}
-      - {x: -0.69, y: 0.13499999}
-      - {x: -0.71, y: 0.114999995}
-      - {x: -0.71, y: 0.085}
-      - {x: -0.63, y: 0.035}
-      - {x: -0.19999999, y: -0.125}
-      - {x: -0.19999999, y: -0.205}
-      - {x: 0.099999994, y: -0.305}
-      - {x: 0.29, y: -0.305}
-      - {x: 0.32999998, y: -0.295}
-      - {x: 0.58, y: -0.185}
-      - {x: 0.66999996, y: -0.085}
-      - {x: 0.66999996, y: 0.035}
+    - - {x: 0.52106905, y: 0.037071235}
+      - {x: 0.31946555, y: 0.12076837}
+      - {x: 0.042160746, y: 0.11497752}
+      - {x: -0.13523367, y: 0.029186945}
+      - {x: -0.018284064, y: -0.056091588}
+      - {x: 0.12964469, y: -0.13399808}
+      - {x: 0.27441117, y: -0.15241675}
+      - {x: 0.44127086, y: -0.08081308}
 --- !u!95 &95000010485224712
 Animator:
   serializedVersion: 3
@@ -101,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e43dc965e8bf0458b452afdbaccbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 400
   timer: 2
 --- !u!212 &212000012134477818
 SpriteRenderer:

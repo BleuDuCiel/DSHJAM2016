@@ -23,7 +23,7 @@ namespace Inputs
 		}
 
 		public bool getAttack() {
-			return Input.GetButtonDown(input + "Attack" + id);
+			return Input.GetButton(input + "Attack" + id);
 		}
 
 		public float getMove() {
