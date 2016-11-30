@@ -41,19 +41,28 @@ public class CharacterSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		// Listen for jumps on JS
-		for (int i = 0; i < nbMaxPlayers; i++)
-			if (Input.GetButtonDown ("JS" + "Jump" + i))
-				addPlayerJS (i);
-
-		// Listen for items on JS
-		for (int i = 0; i < nbMaxPlayers; i++)
-			if (Input.GetButtonDown ("JS" + "Item" + i))
-				delPlayerJS (i);
-
-	
-        if (Input.GetButtonDown("Submit"))
+        // Listen for jumps on JS
+        for (int i = 0; i < nbMaxPlayers; i++)
         {
+            if (Input.GetButtonDown("JS" + "Jump" + i))
+                addPlayerJS(i);
+            if (Input.GetButtonDown("KB" + "Jump" + i))
+                addPlayerKB(i);
+        }
+
+        // Listen for items on JS
+        for (int i = 0; i < nbMaxPlayers; i++)
+        {
+            if (Input.GetButtonDown("JS" + "Item" + i))
+                delPlayerJS(i);
+            if (Input.GetButtonDown("KB" + "Item" + i))
+                delPlayerKB(i);
+        }
+
+
+            if (Input.GetButtonDown("Submit"))
+        {
+            Debug.Log("SUBMIT");
             GameObject.FindGameObjectWithTag("GameManager").SendMessage("characterSelect", players);
 
         }
@@ -85,4 +94,27 @@ public class CharacterSelect : MonoBehaviour
 		nbPlayers--;
 		Debug.Log ("Player abandon :( Current players : " + nbPlayers);
 	}
+
+    void addPlayerKB(int id = 0)
+    {
+        // First, check slot status
+        if (slots[id] != -1) return;
+
+        // Then create a player with his own KB, shitty gameplay will come soon
+        players.Add(new Player(nbPlayers, new LeftHand("KB", id.ToString()), new RightHand("KB", id.ToString())));
+        slots[id] = nbPlayers;
+        nbPlayers++;
+        //Debug.Log("New player with " + Input.GetJoystickNames()[id] + "! Current players : " + nbPlayers);
+    }
+    void delPlayerKB(int id = 0)
+    {
+        // First, check slot status
+        if (slots[id] == -1) return;
+
+        // Then delete a player with his JS id
+        players.RemoveAt(slots[id]);
+        slots[id] = -1;
+        nbPlayers--;
+        Debug.Log("Player abandon :( Current players : " + nbPlayers);
+    }
 }
