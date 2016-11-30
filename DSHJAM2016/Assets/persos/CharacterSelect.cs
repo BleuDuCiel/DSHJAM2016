@@ -13,7 +13,12 @@ public class CharacterSelect : MonoBehaviour
 
     [SerializeField]
     public Sprite[] numbers;
-	public SpriteRenderer j1;
+
+	[SerializeField]
+	public SpriteRenderer[] jx;
+
+	public Texture2D graphic;
+	private Sprite[] graphics;
 
     private int nbPlayers = 0;
     private static int nbMaxPlayers = 4;
@@ -28,6 +33,8 @@ public class CharacterSelect : MonoBehaviour
 		slots = new int[nbMaxPlayers];
 		for ( int i = 0; i < nbMaxPlayers;i++ ) // I hate C#
 			slots[i] = -1;
+
+		graphics = Resources.LoadAll<Sprite>(graphic.name);
     }
 
 
@@ -35,12 +42,12 @@ public class CharacterSelect : MonoBehaviour
     void Update()
     {
 		// Listen for jumps on JS
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < nbMaxPlayers; i++)
 			if (Input.GetButtonDown ("JS" + "Jump" + i))
 				addPlayerJS (i);
 
 		// Listen for items on JS
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < nbMaxPlayers; i++)
 			if (Input.GetButtonDown ("JS" + "Item" + i))
 				delPlayerJS (i);
 
@@ -51,7 +58,8 @@ public class CharacterSelect : MonoBehaviour
 
         }
 
-		j1.sprite = numbers [nbPlayers];
+		for (int i = 0; i < nbMaxPlayers; i++)
+			jx[i].sprite = graphics[slots[i]+1];//numbers [nbPlayers];
 		GetComponent<SpriteRenderer> ().sprite = numbers [nbPlayers];
 			
     }
