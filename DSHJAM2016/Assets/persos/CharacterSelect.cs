@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using Inputs;
 
@@ -26,10 +27,41 @@ public class CharacterSelect : MonoBehaviour
 	private int[] skins;
 
 	private List<Player> players;
+	private List<player_setup> players_tmp;
+
+	class player_setup : IEquatable<player_setup>	{
+		public string input;
+		public int id;
+		public int skin;
+
+		public player_setup(string input, int id) {
+			this.input = input;
+			this.id = id;
+			this.skin = UnityEngine.Random.Range(0,6);
+		}
+
+		public override string ToString() {
+			return "input: " + input + " id: " + id + " skin: " + skin;
+		}
+
+		public bool Equals(player_setup other) {
+			return (this.id == other.id) && (this.input.Equals (other.input));
+		}
+			
+		public static bool operator== (player_setup a, player_setup b) {
+			return a.Equals(b);
+		}
+
+		public static bool operator!= (player_setup a, player_setup b) {
+			return !a.Equals(b);
+		}
+
+	}
 
     // Use this for initialization
     void Start()
     {
+		players_tmp = new List<player_setup>(nbMaxPlayers); 
 		players = new List<Player>(nbMaxPlayers); // I hate stacks
 		slots = new bool[nbMaxPlayers];
 		skins = new int[nbMaxPlayers];
@@ -39,7 +71,6 @@ public class CharacterSelect : MonoBehaviour
 		graphics = Resources.LoadAll<Sprite>(graphic.name);
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -47,18 +78,18 @@ public class CharacterSelect : MonoBehaviour
         for (int i = 0; i < nbMaxPlayers; i++)
         {
             if (Input.GetButtonDown("JS" + "Jump" + i))
-                addPlayerJS(i);
-            if (Input.GetButtonDown("KB" + "Jump" + i))
-                addPlayerKB(i);
+                addPlayer("JS", i);
+            //if (Input.GetButtonDown("KB" + "Jump" + i))
+            //    addPlayerKB(i);
         }
 
         // Listen for items on JS
         for (int i = 0; i < nbMaxPlayers; i++)
         {
             if (Input.GetButtonDown("JS" + "Item" + i))
-                delPlayerJS(i);
-            if (Input.GetButtonDown("KB" + "Item" + i))
-                delPlayerKB(i);
+                delPlayer("JS", i);
+            //if (Input.GetButtonDown("KB" + "Item" + i))
+            //    delPlayerKB(i);
         }
 			
 		// Listen for move on JS
@@ -76,12 +107,34 @@ public class CharacterSelect : MonoBehaviour
         }
 
 		// Display players and skins
-		for (int i = 0; i < nbMaxPlayers; i++)
-			if (!slots[i]) jx[i].sprite = graphics[0];
-			else jx[i].sprite = graphics[skins[i]];			
+		int index = 0;
+		foreach (player_setup p in players_tmp) {
+			jx [index].sprite = graphics [p.skin+1];
+			index++;
+		}
+		for (int i = index; i < 4; i++) {
+			jx [i].sprite = graphics [0];
+		}
+
+		//for (int i = 0; i < nbMaxPlayers; i++)
+		//	if (!slots[i]) jx[i].sprite = graphics[0];
+		//	else jx[i].sprite = graphics[skins[i]];			
     }
 
 	void addPlayer(string pad, int id=0) {
+		player_setup newplayer = new player_setup(pad, id);
+		if (players_tmp.Contains (newplayer)) return;
+
+		players_tmp.Add (newplayer);
+		Debug.Log ("New player added " + newplayer);
+	}
+
+	void delPlayer(string pad, int id=0) {
+		player_setup oldplayer = new player_setup(pad, id);
+		if (!players_tmp.Contains (oldplayer)) return;
+
+		players_tmp.Remove(oldplayer);
+		Debug.Log ("New player deleted " + oldplayer);
 	}
 
 	void addPlayerJS(int id=0) {
@@ -91,7 +144,7 @@ public class CharacterSelect : MonoBehaviour
 		// Then create a player with his own JS, shitty gameplay will come soon
 		//players.Add(new Player(nbPlayers, new LeftHand("JS",id.ToString()), new RightHand("JS",id.ToString())));
 		slots [id] = true;
-		skins [id] = Random.Range (1, graphics.Length);
+		skins [id] = UnityEngine.Random.Range (1, graphics.Length);
 		nbPlayers++;
 		Debug.Log ("New player with " + Input.GetJoystickNames()[id] + "! Current players : " + nbPlayers + " " + players.Count + "[" + slots[0] + ","+ slots[1]+ "," + slots[2]+ ","+ slots[3] +"]");
 	}
