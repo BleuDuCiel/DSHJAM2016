@@ -22,6 +22,22 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
+    m_Name: KBVertical0
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: z
+    positiveButton: s
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: KBMove1
     descriptiveName: 
     descriptiveNegativeName: 
@@ -137,8 +153,8 @@ InputManager:
     m_Name: KBAttack0
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: f
-    positiveButton: 
+    negativeButton: 
+    positiveButton: j
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -201,8 +217,8 @@ InputManager:
     m_Name: KBItem0
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: t
-    positiveButton: 
+    negativeButton: 
+    positiveButton: l
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

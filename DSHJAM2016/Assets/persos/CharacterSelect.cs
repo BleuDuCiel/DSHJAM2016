@@ -70,22 +70,23 @@ public class CharacterSelect : MonoBehaviour
     {
         // Listen for jumps on JS
         for (int i = 0; i < nbMaxPlayers; i++)
-        {
             if (Input.GetButtonDown("JS" + "Jump" + i))
                 addPlayer("JS", i);
-            //if (Input.GetButtonDown("KB" + "Jump" + i))
-            //    addPlayerKB(i);
-        }
+
+		// Listen KB jump
+		if (Input.GetButtonDown("KB" + "Jump" + 0))
+			addPlayer("KB", 0);
 
         // Listen for items on JS
         for (int i = 0; i < nbMaxPlayers; i++)
-        {
             if (Input.GetButtonDown("JS" + "Item" + i))
-                delPlayer("JS", i);
-            //if (Input.GetButtonDown("KB" + "Item" + i))
-            //    delPlayerKB(i);
-        }
-	
+				delPlayer("JS", i);
+
+		// Listen item
+        if (Input.GetButtonDown("KB" + "Item" + 0))
+        	delPlayer("KB",0);
+
+		// Start the game on submit
         if (Input.GetButtonDown("Submit")) createGame ();
 
 		// Display players and skins
