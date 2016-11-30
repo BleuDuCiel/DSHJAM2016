@@ -41,8 +41,8 @@ InputManager:
     m_Name: KBMove1
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: t
-    positiveButton: u
+    negativeButton: left
+    positiveButton: right
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -105,8 +105,8 @@ InputManager:
     m_Name: KBJump1
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: right alt
-    positiveButton: 
+    negativeButton: 
+    positiveButton: p
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -170,7 +170,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: l
+    positiveButton: m
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -182,33 +182,33 @@ InputManager:
     axis: 0
     joyNum: 1
   - serializedVersion: 3
-    m_Name: KBAttack2
+    m_Name: KBVertical0
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: s
+    positiveButton: z
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 3
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: KBVertical1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: down
-    positiveButton: 
+    positiveButton: up
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 1000
+    gravity: 3
     dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 1
-  - serializedVersion: 3
-    m_Name: KBAttack3
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: '[8]'
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
+    sensitivity: 3
+    snap: 1
     invert: 0
     type: 0
     axis: 0

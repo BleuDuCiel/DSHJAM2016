@@ -118,51 +118,52 @@ namespace characterControl
 
         private void Move(float move, bool attack, bool jump)
         {
-
-            m_Anim.SetFloat("Speed", Mathf.Abs(move));
-
-
-            // Move the character
-            m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
-
-            // If the input is moving the player right and the player is facing left...
-            if (move > 0 && !m_FacingRight)
+            if (!m_attacking)
             {
-                // ... flip the player.
-                Flip();
-            }
-            // Otherwise if the input is moving the player left and the player is facing right...
-            else if (move < 0 && m_FacingRight)
-            {
-                // ... flip the player.
-                Flip();
-            }
+                m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
 
-            // If the player should jump...
-            if (m_Grounded && jump)
-            //if(jump && m_Rigidbody2D.velocity.y == 0)
-            {
-                // Add a vertical force to the player.
-                m_Grounded = false;
-                m_Anim.SetBool("Ground", false);
-                Debug.Log(Mathf.Abs(m_Rigidbody2D.velocity.y));
-                m_Rigidbody2D.velocity = Vector2.zero;
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-            }
+                // Move the character
+                m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
 
+                // If the input is moving the player right and the player is facing left...
+                if (move > 0 && !m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+                // Otherwise if the input is moving the player left and the player is facing right...
+                else if (move < 0 && m_FacingRight)
+                {
+                    // ... flip the player.
+                    Flip();
+                }
+
+
+                // If the player should jump...
+                if (m_Grounded && jump)
+                //if(jump && m_Rigidbody2D.velocity.y == 0)
+                {
+                    // Add a vertical force to the player.
+                    m_Grounded = false;
+                    m_Anim.SetBool("Ground", false);
+                    Debug.Log(Mathf.Abs(m_Rigidbody2D.velocity.y));
+                    m_Rigidbody2D.velocity = Vector2.zero;
+                    m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                }
+            }
 
             if (attack)
             {
-                //TODO
-                //m_attackDir = player.getAngle();
-                m_attackDir = new Vector2(0.7f, 0.7f);
+
+                m_attackDir = player.getAngle();
+                Debug.Log("ATKDIR" + m_attackDir);
                 m_attacking = true;
-                
-               
+
+
 
             }
-            else 
+            else
             {
                 if (m_attacking)
                 {
@@ -173,7 +174,7 @@ namespace characterControl
                         m_Anim.SetBool("Attack", true);
                         m_Rigidbody2D.velocity = Vector2.zero;
                     }
-                    
+
                     m_Anim.SetBool("Attack", false);
                 }
                 m_Anim.SetBool("Attack", false);

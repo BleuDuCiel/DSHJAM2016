@@ -31,14 +31,14 @@ namespace Inputs
 		}
 
 		// Return the angle in rad [-π,π] of the left stick
-		public double getAngle() {
-			double x = Input.GetAxis (input + "Move" + id);
-			double y = - Input.GetAxis (input + "Vertical" + id);
+		public Vector2 getAngle() {
+            //double x = Input.GetAxis (input + "Move" + id);
+            //double y = - Input.GetAxis (input + "Vertical" + id);
 
-			// default value
-			if (x == 0 && y == 0) return 0;
-			// angle value
-			return Math.Atan2 (y, x);
+            // default value
+            //if (x == 0 && y == 0) return 0;
+            // angle value
+            return new Vector2(Input.GetAxis(input + "Move" + id), -Input.GetAxis(input + "Vertical" + id));
 		}
 	}
 

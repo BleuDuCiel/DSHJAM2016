@@ -36,7 +36,7 @@ public class Player
 	}
 
 	// Return the angle in rad [-π,π] of the left stick
-	public double getAngle() {
+	public Vector2 getAngle() {
 		return left.getAngle ();
 	}
 
