@@ -7,12 +7,14 @@ public class Player
     public int number { get; set; }
 	private LeftHand left;
 	private RightHand right;
+	public int skin { get; set; }
 
-	public Player(int n, LeftHand left, RightHand right)
+	public Player(int n, int skin, LeftHand left, RightHand right)
     {
         number = n;
 		this.left = left;
 		this.right = right;
+		this.skin = skin;
     }
 
 	// Getters of player inputs

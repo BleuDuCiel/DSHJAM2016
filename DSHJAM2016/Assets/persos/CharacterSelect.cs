@@ -23,8 +23,6 @@ public class CharacterSelect : MonoBehaviour
 
     private int nbPlayers = 0;
     private static int nbMaxPlayers = 4;
-	private bool[] slots;
-	private int[] skins;
 
 	private List<Player> players;
 	private List<player_setup> players_tmp;
@@ -42,6 +40,11 @@ public class CharacterSelect : MonoBehaviour
 
 		public override string ToString() {
 			return "input: " + input + " id: " + id + " skin: " + skin;
+		}
+
+		public override bool Equals(object o) {
+			player_setup other = o as player_setup;
+			return (this.id == other.id) && (this.input.Equals (other.input));
 		}
 
 		public bool Equals(player_setup other) {
@@ -62,12 +65,6 @@ public class CharacterSelect : MonoBehaviour
     void Start()
     {
 		players_tmp = new List<player_setup>(nbMaxPlayers); 
-		players = new List<Player>(nbMaxPlayers); // I hate stacks
-		slots = new bool[nbMaxPlayers];
-		skins = new int[nbMaxPlayers];
-		//for ( int i = 0; i < nbMaxPlayers;i++ ) // I hate C#
-		//	slots[i] = -1;
-
 		graphics = Resources.LoadAll<Sprite>(graphic.name);
     }
 
@@ -91,20 +88,8 @@ public class CharacterSelect : MonoBehaviour
             //if (Input.GetButtonDown("KB" + "Item" + i))
             //    delPlayerKB(i);
         }
-			
-		// Listen for move on JS
-		for (int i = 0; i < nbMaxPlayers; i++) {
-			float axis = Input.GetAxis("JS" + "Move" + i);
-			if (axis == 0) continue;
-			//skins [i] = (skins[i] + (int) (axis > 0) - (int) (axis < 0)) % (skins.Length);
-		}
 	
-        if (Input.GetButtonDown("Submit"))
-        {
-            Debug.Log("SUBMIT");
-            GameObject.FindGameObjectWithTag("GameManager").SendMessage("characterSelect", players);
-
-        }
+        if (Input.GetButtonDown("Submit")) createGame ();
 
 		// Display players and skins
 		int index = 0;
@@ -115,11 +100,19 @@ public class CharacterSelect : MonoBehaviour
 		for (int i = index; i < 4; i++) {
 			jx [i].sprite = graphics [0];
 		}
-
-		//for (int i = 0; i < nbMaxPlayers; i++)
-		//	if (!slots[i]) jx[i].sprite = graphics[0];
-		//	else jx[i].sprite = graphics[skins[i]];			
     }
+
+	void createGame() {
+		Debug.Log("Start Game");
+		players = new List<Player>(nbMaxPlayers);
+
+		int index = 0;
+		foreach (player_setup p in players_tmp) {
+			players.Add(new Player(index, p.skin, new LeftHand(p.input, p.id.ToString()), new RightHand(p.input, p.id.ToString())));
+			index++;
+		}
+		GameObject.FindGameObjectWithTag("GameManager").SendMessage("characterSelect", players);
+	}
 
 	void addPlayer(string pad, int id=0) {
 		player_setup newplayer = new player_setup(pad, id);
@@ -136,50 +129,4 @@ public class CharacterSelect : MonoBehaviour
 		players_tmp.Remove(oldplayer);
 		Debug.Log ("New player deleted " + oldplayer);
 	}
-
-	void addPlayerJS(int id=0) {
-		// First, check slot status
-		if (slots[id]) return;
-
-		// Then create a player with his own JS, shitty gameplay will come soon
-		//players.Add(new Player(nbPlayers, new LeftHand("JS",id.ToString()), new RightHand("JS",id.ToString())));
-		slots [id] = true;
-		skins [id] = UnityEngine.Random.Range (1, graphics.Length);
-		nbPlayers++;
-		Debug.Log ("New player with " + Input.GetJoystickNames()[id] + "! Current players : " + nbPlayers + " " + players.Count + "[" + slots[0] + ","+ slots[1]+ "," + slots[2]+ ","+ slots[3] +"]");
-	}
-
-	void delPlayerJS(int id=0) {
-		// First, check slot status
-		if (!slots[id]) return;
-
-		// Then delete a player with his JS id
-		//players.RemoveAt(slots[id]);
-		slots [id] = false;
-		nbPlayers--;
-		Debug.Log ("Player abandon :( Current players : " + nbPlayers + " " + players.Count + "[" + slots[0] + "," + slots[1] + ","+ slots[2]+ ","+ slots[3] +"]");
-	}
-
-    void addPlayerKB(int id = 0)
-    {
-        // First, check slot status
-        if (slots[id]) return;
-
-        // Then create a player with his own KB, shitty gameplay will come soon
-        players.Add(new Player(nbPlayers, new LeftHand("KB", id.ToString()), new RightHand("KB", id.ToString())));
-        slots[id] = true;
-        nbPlayers++;
-        //Debug.Log("New player with " + Input.GetJoystickNames()[id] + "! Current players : " + nbPlayers);
-    }
-    void delPlayerKB(int id = 0)
-    {
-        // First, check slot status
-        if (!slots[id]) return;
-
-        // Then delete a player with his JS id
-        //players.RemoveAt(slots[id]);
-        slots[id] = false;
-        nbPlayers--;
-        Debug.Log("Player abandon :( Current players : " + nbPlayers);
-    }
 }
