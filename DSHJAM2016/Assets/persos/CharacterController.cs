@@ -21,6 +21,9 @@ namespace characterControl
         [SerializeField]
         private int m_hitPoints = 1;
 
+        [SerializeField]
+        private int m_Ammo = 4;
+
         //ground detection
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .5f; // Radius of the overlap circle to determine if grounded
@@ -34,6 +37,9 @@ namespace characterControl
 
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         private bool m_invincible = false;
+        private bool m_attacking = false;
+        private Vector2 m_attackDir = Vector2.zero;
+
 
         //inputs
         private Player player;
@@ -98,7 +104,7 @@ namespace characterControl
         //inputs to set: i_Jump, i_Attack, i_Item, i_Move
         private void SetInputs()
         {
-            Debug.Log(player);
+            //Debug.Log(player);
             i_Jump = player.getJump();
             i_Attack = player.getAttack();
             i_Item = player.getItem();
@@ -148,15 +154,30 @@ namespace characterControl
 
             if (attack)
             {
-                Debug.Log("how?");
-                Attack();
-                m_Anim.SetBool("Attack", true);
-                m_Rigidbody2D.velocity = m_Rigidbody2D.velocity * 0.5f;
+                //TODO
+                //m_attackDir = player.getAngle();
+                m_attackDir = new Vector2(0.7f, 0.7f);
+                m_attacking = true;
+                
+               
 
             }
-            else
+            else 
             {
+                if (m_attacking)
+                {
+                    if (m_Ammo >= 1)
+                    {
+                        Attack();
+
+                        m_Anim.SetBool("Attack", true);
+                        m_Rigidbody2D.velocity = Vector2.zero;
+                    }
+                    
+                    m_Anim.SetBool("Attack", false);
+                }
                 m_Anim.SetBool("Attack", false);
+                m_attacking = false;
             }
 
 
@@ -175,6 +196,7 @@ namespace characterControl
 
         private void Attack()
         {
+
             Transform p = Instantiate(m_Proj);
             Collider2D c = p.GetComponent<Collider2D>();
             //ignore collision between projectile and all player colliders
@@ -194,7 +216,11 @@ namespace characterControl
 
             p.position = transform.position + pos;
 
-            p.gameObject.SendMessage("Setup", dir);
+            //TODO getAngle()
+            p.gameObject.SendMessage("Setup", m_attackDir);
+
+            m_Ammo--;
+
 
         }
 
@@ -203,6 +229,7 @@ namespace characterControl
             if (m_hitPoints <= 0)
             {
                 m_Anim.SetBool("Dead", true);
+                setInvincible(true);
                 StartCoroutine(WaitAndDie());
             }
         }
@@ -216,9 +243,11 @@ namespace characterControl
                 m_hitPoints--;
             }
 
+        }
 
-
-
+        private void Ammo()
+        {
+            m_Ammo++;
         }
 
         private void UpdateCollider()
