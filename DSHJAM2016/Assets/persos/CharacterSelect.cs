@@ -12,9 +12,6 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField]
     private Transform[] m_Characters;
 
-    [SerializeField]
-    public Sprite[] numbers;
-
 	[SerializeField]
 	public SpriteRenderer[] jx;
 

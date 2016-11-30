@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
             Vector3 pos = Vector3.left * 5 * i;
             //TODO character selection
             Debug.Log("waddup?");
-            Transform p = Instantiate(characterPerfabs[0]);
+			Transform p = Instantiate(characterPerfabs[pl.skin]);
             p.position = pos;
 			p.SendMessage ("SetupPlayer", pl);
             i++;
