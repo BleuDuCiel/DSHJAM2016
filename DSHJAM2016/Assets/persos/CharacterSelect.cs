@@ -11,28 +11,16 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField]
     private Transform[] m_Characters;
 
-    struct pair
-    {
-        public string pre;
-        public string suf;
-        public pair(string p, string s)
-        {
-            pre = p;
-            suf = s;
-        }
-    }
-
     [SerializeField]
     public Sprite[] numbers;
+	public SpriteRenderer j1;
 
     private int nbPlayers = 0;
     private static int nbMaxPlayers = 4;
 	private int[] slots;
 
 	private List<Player> players;
-    private pair[] input;
 
-    private int cpt = 0;
     // Use this for initialization
     void Start()
     {
@@ -62,6 +50,9 @@ public class CharacterSelect : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameManager").SendMessage("characterSelect", players);
 
         }
+
+		j1.sprite = numbers [nbPlayers];
+		GetComponent<SpriteRenderer> ().sprite = numbers [nbPlayers];
 			
     }
 
@@ -80,7 +71,7 @@ public class CharacterSelect : MonoBehaviour
 		// First, check slot status
 		if (slots[id] == -1) return;
 
-		// Then create a player with his own JS, shitty gameplay will come soon
+		// Then delete a player with his JS id
 		players.RemoveAt(slots[id]);
 		slots [id] = -1;
 		nbPlayers--;
